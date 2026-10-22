@@ -6,6 +6,22 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Protocolo de Diabetes — questionário interativo">
   <title>Protocolo de Diabetes</title>
+  <!--
+    Corrige a resolução de arquivos na Vercel para /pagina E /pagina/.
+    Também funciona no Live Server independentemente do nome da pasta do projeto.
+    Precisa aparecer antes de CSS, JS, imagens e outros recursos relativos.
+  -->
+  <script>
+    (function () {
+      var path = window.location.pathname;
+      var folder = /\/[^/]+\.[^/]+$/.test(path)
+        ? path.replace(/[^/]+$/, '')
+        : (path.endsWith('/') ? path : path + '/');
+      var base = document.createElement('base');
+      base.href = folder;
+      document.head.appendChild(base);
+    })();
+  </script>
   <link rel="icon" href="assets/images/logo.webp" type="image/webp">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/dados.js" defer></script>
@@ -25,6 +41,6 @@
       <div class="fallback-intro"><h1>Protocolo de Diabetes</h1><p>Carregando o questionário…</p></div>
     </main>
   </div>
-  <script>window.addEventListener('error',function(e){if(e.target && e.target.tagName==='SCRIPT'){document.getElementById('content').innerHTML='<h1>Não foi possível carregar o questionário</h1><p>Abra todos os arquivos extraídos juntos pelo Live Server, mantendo as pastas <strong>js</strong>, <strong>css</strong> e <strong>assets</strong>.</p>';}},true);</script>
+  <script>window.addEventListener('error',function(e){if(e.target && e.target.tagName==='SCRIPT'){document.getElementById('content').innerHTML='<h1>Não foi possível carregar o questionário</h1><p>Um arquivo necessário não foi encontrado: <strong>'+e.target.getAttribute('src')+'</strong>. Confira se as pastas <strong>pagina/js</strong>, <strong>pagina/css</strong> e <strong>pagina/assets</strong> foram publicadas.</p>';}},true);</script>
 </body>
 </html>
