@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Protocolo de Diabetes — questionário interativo">
+  <title>Protocolo de Diabetes</title>
+  <link rel="icon" href="assets/images/logo.webp" type="image/webp">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/dados.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <div id="site" class="page-shell">
+    <header class="topbar" id="topbar">
+      <button type="button" class="back" id="back" aria-label="Voltar à etapa anterior" hidden>‹ <span>Voltar</span></button>
+      <img id="brand" src="assets/images/logo.webp" alt="Protocolo de Diabetes" class="brand" onerror="this.hidden=true">
+      <span class="topbar-fill" aria-hidden="true"></span>
+    </header>
+    <div class="progress-wrap" id="progress-wrap" hidden>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <main id="content" class="quiz-content" tabindex="-1" aria-live="polite">
+      <div class="fallback-intro"><h1>Protocolo de Diabetes</h1><p>Carregando o questionário…</p></div>
+    </main>
+  </div>
+  <script>window.addEventListener('error',function(e){if(e.target && e.target.tagName==='SCRIPT'){document.getElementById('content').innerHTML='<h1>Não foi possível carregar o questionário</h1><p>Abra todos os arquivos extraídos juntos pelo Live Server, mantendo as pastas <strong>js</strong>, <strong>css</strong> e <strong>assets</strong>.</p>';}},true);</script>
+</body>
+</html>
